@@ -55,6 +55,6 @@ Bonk is a Discord bot developed using Discord.js, it features osu! related funct
 ### Code commenting
 
 - [x] index.js
-- [ ] commands
+- [x] commands
 - [ ] jobs
 - [ ] functions
