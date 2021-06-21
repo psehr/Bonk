@@ -1,6 +1,6 @@
 module.exports = {
   name: "user",
-  aliases: ["u", "profile"],
+  aliases: ["u", "profile", "usr"],
 
   execute(client, msg, args, db) {
     const user = require("../functions/osu/user"); // importing the user function, used to call osu's APIv2 through osu-api-extended

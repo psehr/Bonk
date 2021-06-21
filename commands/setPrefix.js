@@ -1,5 +1,6 @@
 module.exports = {
   name: "prefix",
+  aliases: "prefixset",
 
   async execute(client, msg, args, db) {
     if (args.length == 0 || args.length > 1) {
