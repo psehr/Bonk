@@ -27,6 +27,11 @@ Bonk is a Discord bot developed using Discord.js, it features osu! related funct
   - [ ] Rendering the whole replay in itself 
   - [ ] Allow choke point analysis
 - [ ] Random map recommandation, including filters for skillsets and difficulty range (std)
+- [ ] BWS calculations for tournament players (+formula customization)
+- [ ] Multiplayer matches analysis
+  - [ ] For tournament matches
+  - [ ] For casual lobbies
+- [ ] o!mm (Maid Bot) API integration (?) 
 
 ### Code commenting
 
