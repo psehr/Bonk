@@ -8,6 +8,7 @@ Bonk is a Discord bot developed using Discord.js, it features osu! related funct
 
 - [ ] Allow per-server command enabling/disabling
 - [ ] Allow per-channel command enabling/disabling
+- [ ] Two display modes: canvas and embed
 
 ### Commands
 
@@ -25,6 +26,7 @@ Bonk is a Discord bot developed using Discord.js, it features osu! related funct
 - [ ] Displaying replay data
   - [ ] Rendering the whole replay in itself 
   - [ ] Allow choke point analysis
+- [ ] Random map recommandation, including filters for skillsets and difficulty range (std)
 
 ### Code commenting
 
