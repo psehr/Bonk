@@ -40,15 +40,15 @@ Bonk is a Discord bot developed using Discord.js, it features osu! related funct
 - [ ] Hourly global leaderboard
   - [x] Job
   - [x] Fetching
-  - [ ] Full-fledged integration 
+  - [ ] Fully-fledged integration 
 - [ ] New scores (filters: min pp, user, country)
   - [ ] Job
   - [ ] Fetching
-  - [ ] Full-fledged integration 
+  - [ ] Fully-fledged integration 
 - [ ] New beatmaps (filters: all, by mapper, by diff range, by status)
   - [ ] Job
   - [ ] Fetching
-  - [ ] Full-fledged integration 
+  - [ ] Fully-fledged integration 
 - ...
 
 
