@@ -3,6 +3,6 @@ module.exports = {
   aliases: ["p"],
 
   async execute(client, msg, args, db) {
-    msg.channel.send(`\`Pong!\``);
+    msg.channel.send(`\`Pong!\``); // answering with pong
   },
 };

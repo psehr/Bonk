@@ -114,6 +114,7 @@ client.on("message", (msg) => {
     .then(() => {
       let msg_array = msg.content.split(" "); // splitting msg's content in an array
       let commandName = msg_array[0].slice(prefix.length); // retrieving the first item (i.e the command that's called) in the array
+
       let args = msg_array.slice(1); // removing the command from the msg array (1st item) to retrieve all the arguments
 
       const command = client.commands.get(commandName) || client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
