@@ -26,6 +26,8 @@ Bonk is a Discord bot developed using Discord.js, it features osu! related funct
 
 - [ ] Roll
 - [ ] Retrieving a user's most recent score (!recent)
+  - [x] Fetching apiv2 through a custom function
+  - [ ] Command
 - [ ] Displaying beatmap data (!beatmap)
   - [ ] Basic features
   - [ ] pp calc features
