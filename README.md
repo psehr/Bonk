@@ -1,6 +1,14 @@
-# Bonk
+<p align="center">
+  <a href="https://github.com/Oxyyy/Bonk">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-Bonk is a Discord bot developed using Discord.js, it features osu! related functionalities.
+  <h3 align="center">Bonk</h3>
+</p>
+
+<p align="center">
+  Bonk is a Discord bot developed using Discord.js, it features osu! related functionalities.
+</p>
 
 ## Currently implemented
 
