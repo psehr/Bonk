@@ -16,7 +16,7 @@
 
 - Fully-fledged **user** command, used to display an osu! player profile card in the form of a Discord embed.
 - **osuset** command, used to assign a osu! user id to a discord user, in order to simplify per-user osu! commands.
-- **ping** command, used for checking if the bot's online.
+- **ping** command, used to check if the bot's online.
 - **prefixset** command, used to change the prefix used to trigger commands (unique for each server).
 - **shutdown** command, used to force restart the bot.
 - **status** command, used to update the bot's status.
