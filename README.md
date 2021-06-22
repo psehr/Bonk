@@ -3,16 +3,16 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Bonk</h3>
+  <h1 align="center">Bonk</h1>
 </p>
 
 <p align="center">
   Bonk is a Discord bot developed using Discord.js, it features osu! related functionalities.
 </p>
 
-## Currently implemented
+<h2 align="center">Currently implemented</h2>
 
-### Commands
+<h3 align="center">Commands</h3>
 
 - Fully-fledged **user** command, used to display an osu! player profile card in the form of a Discord embed.
 - **osuset** command, used to assign a osu! user id to a discord user, in order to simplify per-user osu! commands.
@@ -22,15 +22,15 @@
 - **status** command, used to update the bot's status.
 - ... and more to come! (see the To-do list)
 
-## To-do
+<h2 align="center">To-Do</h2>
 
-### Structure
+<h3 align="center">Structure</h3>
 
 - [ ] Allow per-server command enabling/disabling
 - [ ] Allow per-channel command enabling/disabling
 - [ ] Two display modes: canvas and embed
 
-### Commands
+<h3 align="center">Commands</h3>
 
 - [ ] Roll
 - [ ] Retrieving a user's most recent score (!recent)
@@ -57,7 +57,7 @@
 - [ ] o!mm (Maid Bot) API integration (?)
 - [ ] Playing session reports (by user)
 
-### Channel alerts ("Widgets")
+<h3 align="center">Channel alerts ("Widgets")</h3>
 
 - [ ] Hourly global leaderboard
   - [x] Job
