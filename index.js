@@ -117,14 +117,15 @@ client.on("message", (msg) => {
     })
     .then(() => {
       if (!msg.content.startsWith(prefix)) return; // if the message does not start with the fetched prefix, abort
-      if (restrictedChannels.includes(msg.channel.id)) return msg.reply("`This channel does not allow sending commands`"); // if restrictedChannels contains the channel id, abort
 
       let msg_array = msg.content.split(" "); // splitting msg's content in an array
       let commandName = msg_array[0].slice(prefix.length); // retrieving the first item (i.e the command that's called) in the array
       let args = msg_array.slice(1); // removing the command from the msg array (1st item) to retrieve all the arguments
 
       const command = client.commands.get(commandName) || client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName)); // getting the command through name/aliases
+
       if (restrictedCommands.includes(command.name)) return msg.reply("`This command has been disabled on this server`"); // if restrictedCommands contains the command (name/alias), abort
+      if (restrictedChannels.includes(msg.channel.id) && command.name != "restrictChannel") return msg.reply("`This channel does not allow sending commands`"); // if restrictedChannels contains the channel id, abort
 
       if (command) {
         // if command (file) has a value
