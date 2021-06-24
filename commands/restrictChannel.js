@@ -1,6 +1,6 @@
 module.exports = {
   name: "restrictChannel",
-  aliases: ["restrict", "res"],
+  aliases: ["chrestrict", "chres"],
 
   async execute(client, msg, args, db) {
     const firebase = require("firebase-admin"); // required for array pop/push methods in firestore
