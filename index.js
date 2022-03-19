@@ -124,11 +124,11 @@ client.on("message", (msg) => {
 
       const command = client.commands.get(commandName) || client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName)); // getting the command through name/aliases
 
-      if (restrictedCommands.includes(command.name)) return msg.reply("`This command has been disabled on this server`"); // if restrictedCommands contains the command (name/alias), abort
-      if (restrictedChannels.includes(msg.channel.id) && command.name != "restrictChannel") return msg.reply("`This channel does not allow sending commands`"); // if restrictedChannels contains the channel id, abort
-
       if (command) {
         // if command (file) has a value
+        if (restrictedCommands.includes(command.name)) return msg.reply("`This command has been disabled on this server`"); // if restrictedCommands contains the command (name/alias), abort
+        if (restrictedChannels.includes(msg.channel.id) && command.name != "restrictChannel") return msg.reply("`This channel does not allow sending commands`"); // if restrictedChannels contains the channel id, abort
+
         command.execute(client, msg, args, db); // execute the command
       }
     });

@@ -4,7 +4,7 @@ module.exports = {
 
   async execute(client, msg, args, db) {
     const recent = require("../functions/osu/recent");
-    let q = await recent.execute(7562902, 1);
+    let q = await recent.execute(9239673, 1);
     console.log(q);
   },
 };

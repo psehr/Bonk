@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "prod": "npm run stop && pm2 start ecosystem.config.js && pm2 save",
+    "stop": "pm2 kill"
   },
-  "author": "",
+  "author": "pseh",
   "license": "ISC",
   "dependencies": {
     "cron": "^1.8.2",
     "discord.js": "^12.5.3",
     "firebase-admin": "^9.8.0",
     "osu-api-extended": "^1.0.11",
-    "osu-npm": "^1.0.5"
+    "osu-npm": "^1.0.5",
+    "time-ago": "^0.2.1",
+    "timediff": "^1.1.1"
   }
 }

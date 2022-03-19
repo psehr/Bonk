@@ -9,7 +9,8 @@ module.exports = {
     try {
       await v2.login();
       let user = await v2.user(id);
+
       return user;
-    } catch (error) {}
+    } catch (error) { }
   },
 };
