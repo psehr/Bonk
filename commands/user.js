@@ -16,10 +16,10 @@ module.exports = {
 
         user_recent.execute(user_id_formatted, true, 'osu', 1).then((user_recent) => {
           // fetching user_recent api using the answered id
-
-          const currently_playing = td(user_recent[0].created_at, Date.now()).minutes <= 15 ? true : false;
+          var currently_playing;
+          user_recent.exists ? (currently_playing = td(user_recent[0].created_at, Date.now()).minutes <= 15 && user.is_online ? true : false) : currently_playing = false;
           const embedColor = currently_playing ? "#ff00ff" : "#ff0000";
-          const isPlayingField = currently_playing ? "Currently playing" : "Currently not playing"
+          const isPlayingField = currently_playing ? "Online" : "Offline"
 
           const avatar_url = user.avatar_url; // extracting profile picture
           const country_code = user.country_code.toLowerCase(); // extracting country code, formatted to lowercase, used for the flag emote (ex: fr)
@@ -37,11 +37,25 @@ module.exports = {
           const lastMonthPlaycount = user.monthly_playcounts[user.monthly_playcounts.length - 1].count.toLocaleString();
           const joinDate = user.join_date.split("T")[0]; // extracting the account creation date (ex: 2016-11-06)
           const ago = ta.ago(user.join_date);
-          const followers = user.mapping_follower_count; // extracting mapping followers amount
-          const friends = user.follower_count; // extracting friend amount
+          const subscribers = user.mapping_follower_count.toLocaleString(); // extracting mapping followers amount
+          const subscriber_plural = subscribers > 1 ? "s" : "";
+          const followers = user.follower_count.toLocaleString(); // extracting friend amount
+          const follower_plural = followers > 1 ? "s" : "";
           const rankedMaps = user.ranked_and_approved_beatmapset_count; // extracting ranked maps amount
+          const map_plural = rankedMaps > 1 ? "s" : "";
           const medals = user.user_achievements.length;
           const medalsProgression = Math.round((user.user_achievements.length / 261) * 100);
+          var playstyle;
+          if (user.playstyle) {
+            playstyle = user.playstyle;
+            playstyle = playstyle.join("+");
+            playstyle = playstyle.replace("keyboard", "KB");
+            playstyle = playstyle.replace("tablet", "TB");
+            playstyle = playstyle.replace("mouse", "M");
+            playstyle = playstyle.replace("touch", "TD");
+          } else {
+            playstyle = "N/A";
+          }
 
           let wrapped = {
             // creating an object, containing all the needed fields of the future embed
@@ -50,33 +64,33 @@ module.exports = {
             image: "",
             thumbnail: `${avatar_url}`,
             url: `https://osu.ppy.sh/users/${id}`,
-            footer: `${friends} friend(s) | ${followers} follower(s) | ${rankedMaps} ranked beatmap(s) | ${isPlayingField}`,
+            footer: `${followers} follower${follower_plural} | ${subscribers} subscriber${subscriber_plural} | ${rankedMaps} ranked beatmap${map_plural} | Playstyle: ${playstyle} | ${isPlayingField}`,
             author: {
               name: `${username} on osu!standard`,
               url: `https://osu.ppy.sh/users/${id}`,
-              iconURL: `https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/langfr-260px-Osu%21_Logo_2016.svg.png`,
+              iconURL: `https://osu.ppy.sh/favicon-32x32.png`,
             },
             fields: [
               {
                 name: `**Performance:**`,
                 value: `
-              **🠶 #${global_rank} :earth_africa:
-              🠶 #${country_rank} :flag_${country_code}:
-              🠶 ${pp}pp
-              🠶 ${accuracy}% avg.
-              🠶 ${badgeAmount} badge(s) **
-              `,
+                **🠶 #${global_rank} :earth_africa:
+                🠶 #${country_rank} :flag_${country_code}:
+                🠶 ${pp}pp
+                🠶 ${accuracy}% avg.
+                🠶 ${badgeAmount} badge(s) **
+                `,
                 inline: true, // fields will be side to side
               },
               {
                 name: `**Progression:**`,
                 value: `
-                **🠶 ${playtime} hours played
-                🠶 Joined ${joinDate} (${ago})
-                🠶 ${playcount} plays (${lastMonthPlaycount} last month)
-                🠶 Level ${level} (${level_progression}%)
-                🠶 ${medals} medal(s) (${medalsProgression}%)**
-                `,
+                  **🠶 ${playtime} hours played
+                  🠶 Joined ${joinDate} (${ago})
+                  🠶 ${playcount} plays (${lastMonthPlaycount} last month)
+                  🠶 Level ${level} (${level_progression}%)
+                  🠶 ${medals} medal(s) (${medalsProgression}%)**
+                  `,
                 inline: true, // fields will be side to side
               },
             ],
@@ -88,5 +102,5 @@ module.exports = {
 
       });
     });
-  },
+  }
 };

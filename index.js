@@ -20,9 +20,20 @@ let timecodeObject = timecode.execute(); // using the timecode function to get c
 
 const log = require("./functions/log");
 
+client.once('ready', () => {
+  client.guilds.cache.forEach(element => {
+    db.collection("guilds").doc(element.id).update({
+      guildMemberCount: element.memberCount,
+      guildName: element.name,
+      guildOwnerID: element.ownerID
+    })
+  })
+});
+
 client.on("ready", () => {
   // once the bot is connected
   console.log(`Logged in as ${client.user.tag}!`); // console logging the bot's connection
+
 
   db.collection("bot") // fetching db
     .doc("logs")
@@ -128,8 +139,12 @@ client.on("message", (msg) => {
         // if command (file) has a value
         if (restrictedCommands.includes(command.name)) return msg.reply("`This command has been disabled on this server`"); // if restrictedCommands contains the command (name/alias), abort
         if (restrictedChannels.includes(msg.channel.id) && command.name != "restrictChannel") return msg.reply("`This channel does not allow sending commands`"); // if restrictedChannels contains the channel id, abort
-
-        command.execute(client, msg, args, db); // execute the command
+        try {
+          command.execute(client, msg, args, db); // execute the command
+        } catch (e) {
+          console.log("oui")
+          msg.reply(`${e}`);
+        }
       }
     });
 });
